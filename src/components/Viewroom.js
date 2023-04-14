@@ -17,7 +17,6 @@ const Viewroom = () => {
     const [roomNo, setRoomNo] = useState();
     const [roomId, setRoomId] = useState();
     const [personName, setPersonName] = useState('');
-    const [meterReading, setMeterReading] = useState();
     const [rent, setRent] = useState();
     const [date, setDate] = useState('');
     const [loading, setLoading] = useState(false);
@@ -64,7 +63,7 @@ const Viewroom = () => {
             let roomsDetails = []
             rooms.forEach(room => {
                 const roomNo = room.data().roomNo;
-                const meterReading = room.data().meterReading;
+                
                 const personName = room.data().personName;
                 const month = room.data().month;
                 const year = room.data().year;
@@ -80,13 +79,13 @@ const Viewroom = () => {
                 }
                 console.log(date);
                 const roomDetail = {
-                    roomNo, meterReading, personName, date, rent
+                    roomNo, personName, date, rent
                 };
                 roomsDetails = [...roomsDetails, roomDetail];
             })
             setRoomNo(roomsDetails[0].roomNo);
             setRent(roomsDetails[0].rent);
-            setMeterReading(roomsDetails[0].meterReading);
+           
             setPersonName(roomsDetails[0].personName);
             setDate(roomsDetails[0].date);
             setIsShown(true);
@@ -111,7 +110,7 @@ const Viewroom = () => {
             console.log('I m here');
             updateDoc(roomRef, {
                 roomNo: roomNo,
-                meterReading: meterReading,
+                
                 personName: personName,
                 month: parseInt(month),
                 year: parseInt(year),
@@ -129,7 +128,7 @@ const Viewroom = () => {
             next = new Date(next).getFullYear() + '-' + (new Date(next).getMonth() + 1) + '-' + new Date(next).getDate();
             updateDoc(roomRef, {
                 roomNo: roomNo,
-                meterReading: meterReading,
+               
                 personName: personName,
                 month: parseInt(month),
                 year: parseInt(year),
@@ -189,11 +188,7 @@ const Viewroom = () => {
                         const personName = e.target.value;
                         setPersonName(personName);
                     }} />
-                    <label htmlFor='meter'>Current Meter Reading</label>
-                    <input type="number" name="meter" step="0.01" value={meterReading} onChange={e => {
-                        const meterReading = e.target.value;
-                        setMeterReading(meterReading);
-                    }} />
+                    
                     <label htmlFor='rent'>Rent</label>
                     <input type="number" name="rent" step="0.01" value={rent} onChange={e => {
                         const rent = parseInt(e.target.value);

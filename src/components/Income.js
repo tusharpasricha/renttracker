@@ -82,7 +82,7 @@ const Income = () => {
             <main className="dashboard">
             <Sidebar/>
                 {user && <section className="getintouch">
-                    <h2>Income</h2>
+                    <h2>Deposit Rent</h2>
                     <form onSubmit={submitHandler}>
                         <label htmlFor='room'>Room No.</label>
                         <select id="roomId">

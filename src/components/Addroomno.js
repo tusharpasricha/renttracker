@@ -10,7 +10,7 @@ const AddRoomNo = () => {
 
     const roomRef = useRef();
     const personRef = useRef();
-    const meterRef = useRef();
+  
     const dateRef = useRef();
     const rentRef = useRef();
 
@@ -29,7 +29,7 @@ const AddRoomNo = () => {
 
         const roomNo = roomRef.current.value;
         const personName = personRef.current.value;
-        const meterReading = meterRef.current.value;
+        
 
         console.log(dateRef.current.value);
         const year = parseInt(dateRef.current.value.split('-')[0]);
@@ -52,7 +52,7 @@ const AddRoomNo = () => {
         addDoc(collection(db, "rooms"), {
             roomNo: parseInt(roomNo),
             personName: personName,
-            meterReading: parseFloat(meterReading),
+        
             month: month,
             day: day,
             year: year,
@@ -86,8 +86,6 @@ const AddRoomNo = () => {
                     <input type="text" name="person" ref={personRef} />
                     <label htmlFor='date'>Date</label>
                     <input type="date" name="date" ref={dateRef} />
-                    <label htmlFor='meter'>Current Meter Reading</label>
-                    <input type="number" name="meter" ref={meterRef} step="0.01" />
                     <label htmlFor='rent'>Current Rent</label>
                     <input type="number" name="rent" ref={rentRef} step="0.01" />
                     {!loading && <input type="submit" value="Add" />}
