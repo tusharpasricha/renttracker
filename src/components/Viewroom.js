@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { collection, query, where, getDocs, doc, updateDoc, orderBy } from "firebase/firestore";
 import AuthContext from '../stores/AuthContext'
 import db from '../data/firebase';
-import classes from './viewroom.module.css'
+import Sidebar from './sidebar';
+import Third from './third';
 
 const Viewroom = () => {
 
@@ -159,9 +160,12 @@ const Viewroom = () => {
     }
 
     return (
-        <div className={classes.room}>
+        <div className='home'>
+        <main className="dashboard">
+        <Sidebar/>
+       
             {!isShown && <section className="getintouch">
-                <h2 className={classes.roomText}>Room Details</h2>
+                <h2 >Room Details</h2>
                 <form onSubmit={submitHandler}>
                     <label htmlFor='room'>Room No.</label>
                     <select id="roomId">
@@ -172,9 +176,9 @@ const Viewroom = () => {
                     <input type="submit" value="View" />
                 </form>
             </section>}
-            {isShown && <section className={classes.getintouch}>
-                <h2 className={classes.roomText}>Room No {roomNo}</h2>
-                <form onSubmit={submitHandler1}>
+            {isShown && <section className="getintouch">
+                <h2 >Room No {roomNo}</h2>
+                <form onSubmit={submitHandler1} >
                     <label htmlFor='room'>Room No.</label>
                     <input type="number" name="room" value={roomNo} onChange={e => {
                         const roomNo = e.target.value;
@@ -203,6 +207,9 @@ const Viewroom = () => {
                     {!loading && <input type="submit" value="Update" />}
                 </form>
             </section>}
+        
+        <Third/>
+            </main >
         </div>
     )
 

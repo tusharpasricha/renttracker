@@ -1,10 +1,10 @@
 import { collection, deleteDoc, doc, getDocs, orderBy, query, where } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import classes from './viewexpenses.module.css'
 import AuthContext from '../stores/AuthContext'
 import db from "../data/firebase";
-import Viewroom from "./Viewroom";
+import Sidebar from './sidebar';
+import Third from './third';
 
 const Rooms = () => {
 
@@ -52,11 +52,14 @@ const Rooms = () => {
     }
 
     return (
-        <>
+        <div className='home'>
+        <main className="dashboard">
+        <Sidebar/>
+        <div className="getintouch">
             {user && <div>
-                <Viewroom/>
+                
                 {loading && <div className="loading">Loading...</div>}
-                {rooms[0] && <table className={classes.contentTable}>
+                {rooms[0] && <table className="contentTable">
                     <thead>
                         <tr>
                             <th>Room No.</th>
@@ -77,8 +80,10 @@ const Rooms = () => {
                 </table>}
             </div>}
             {!rooms[0] && !loading && <div className="error">No Rooms Found:(</div>}
-           
-        </>
+            </div>
+            <Third/>
+            </main >
+        </div>
     )
 
 }

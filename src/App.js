@@ -1,12 +1,11 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Addexpense from "./components/AddExpense";
 import AddRoomNo from "./components/Addroomno";
-import Navbar from "./components/Navbar";
 import Viewexpense from "./components/Viewexpense";
 import ViewMonth from "./components/ViewMonth";
 import Viewroom from "./components/Viewroom";
 import Home from "./Home";
-import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
-import Electricitybill from "./components/Electricitybill";
 import Income from "./components/Income";
 import Monthly from "./components/Monthly";
 import Building from "./components/Building";
@@ -14,10 +13,12 @@ import Rentinfo from "./components/Rentinfo";
 import Rooms from "./components/Rooms";
 import Login from './components/Login';
 import Signup from './components/Signup';
+
 import { AuthProvider } from './stores/AuthContext';
 import { getAuth } from 'firebase/auth';
 import RequireAuth from "./routes/PrivateRoute";
 import { app } from './data/firebase';
+
 
 function App() {
 
@@ -26,8 +27,6 @@ function App() {
   return (
     <AuthProvider>
       <div className="App">
-
-        <Navbar />
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
@@ -80,14 +79,7 @@ function App() {
                 </RequireAuth>
               }
             />
-            <Route
-              path="/electricitybill"
-              element={
-                <RequireAuth>
-                  <Electricitybill />
-                </RequireAuth>
-              }
-            />
+            
             <Route
               path="/income"
               element={

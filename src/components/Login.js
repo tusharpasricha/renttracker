@@ -3,6 +3,8 @@ import AuthContext from '../stores/AuthContext';
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import db from '../data/firebase'
 import { Link, useNavigate } from 'react-router-dom';
+import Sidebar from './sidebar';
+import Third from './third';
 
 const Login = () => {
 
@@ -63,8 +65,11 @@ const Login = () => {
     }
 
     return (
-        <div className='login'>
-            <section className="getintouch">
+        <div className='home'>
+        <main className="dashboard">
+        <Sidebar/>
+        <div className="getintouch">
+            <section className='login'>
                 <img src="img/login.svg" alt="Logo" />
                 <form onSubmit={submitHandler}>
                     {error && <div className='error'>{error}</div>}
@@ -82,6 +87,9 @@ const Login = () => {
                 </form>
             </section>
         </div>
+           <Third/>
+           </main >
+       </div>
     );
 
 }

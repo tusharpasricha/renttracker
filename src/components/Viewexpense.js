@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import db from '../data/firebase'
 import { collection, getDocs, orderBy, query, where } from 'firebase/firestore'
 import AuthContext from '../stores/AuthContext'
-import classes from './viewexpenses.module.css'
+
 
 const Viewexpense = () => {
 
@@ -62,8 +62,8 @@ const Viewexpense = () => {
     }
 
     return (
-        <>
-            <section className="getintouch">
+        <div className="getintouch">
+            <section >
                 <h2>View Expenses</h2>
                 <form onSubmit={submitHandler}>
                     <label htmlFor='room'>Room No.</label>
@@ -81,7 +81,7 @@ const Viewexpense = () => {
                         <div className='owner'>No Data Available</div>
                     }
                 </div>
-                {expenses[0] && <table className={classes.contentTable}>
+                {expenses[0] && <table className="contentTable">
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -102,7 +102,7 @@ const Viewexpense = () => {
                 </table>}
                 {expenses[0] && <div className='owner'>Total Amount : {amount}</div>}
             </section>
-        </>
+        </div>
     )
 
 }

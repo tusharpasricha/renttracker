@@ -2,6 +2,9 @@ import React, { useContext, useRef, useState } from 'react'
 import db from '../data/firebase';
 import { collection, addDoc } from "firebase/firestore";
 import AuthContext from '../stores/AuthContext'
+import '../home.css'
+import Sidebar from './sidebar';
+import Third from './third';
 
 const AddRoomNo = () => {
 
@@ -70,7 +73,9 @@ const AddRoomNo = () => {
     }
 
     return (
-        <div>
+        <div className='home'>
+            <main className="dashboard">
+            <Sidebar/>
             <section className="getintouch">
                 <h2>Add a New Room</h2>
                 <form onSubmit={submitHandler}>
@@ -88,6 +93,8 @@ const AddRoomNo = () => {
                     {!loading && <input type="submit" value="Add" />}
                 </form>
             </section>
+            <Third/>
+            </main >
         </div>
     )
 

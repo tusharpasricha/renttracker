@@ -2,6 +2,8 @@ import { addDoc, collection, getDocs, query, doc, updateDoc, where, orderBy } fr
 import React, { useContext, useEffect, useState } from "react";
 import AuthContext from '../stores/AuthContext'
 import db from "../data/firebase";
+import Third from "./third";
+import Sidebar from "./sidebar";
 
 const Income = () => {
 
@@ -76,8 +78,9 @@ const Income = () => {
     }
 
     return (
-        <div>
-            <>
+        <div className='home'>
+            <main className="dashboard">
+            <Sidebar/>
                 {user && <section className="getintouch">
                     <h2>Income</h2>
                     <form onSubmit={submitHandler}>
@@ -94,7 +97,8 @@ const Income = () => {
                         {!loading && <input type="submit" value="Add" />}
                     </form>
                 </section>}
-            </>
+                <Third/>
+            </main >
         </div>
     )
 

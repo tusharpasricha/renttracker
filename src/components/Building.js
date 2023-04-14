@@ -2,8 +2,8 @@ import React, { useState, useRef, useContext } from 'react'
 import db from '../data/firebase'
 import { collection, addDoc } from 'firebase/firestore'
 import AuthContext from '../stores/AuthContext';
-import classes from './addexpense.module.css'
-
+import Sidebar from './sidebar';
+import Third from './third';
 const Building = () => {
     const [loading, setLoading] = useState(false);
 
@@ -42,7 +42,9 @@ const Building = () => {
     }
 
     return (
-        <div className={classes.addexpense}>
+        <div className='home'>
+        <main className="dashboard">
+        <Sidebar/>
             <section className="getintouch">
                 <h2>Add a Building Expense</h2>
                 <form onSubmit={submitHandler}>
@@ -56,6 +58,8 @@ const Building = () => {
                     {!loading && user && <input type="submit" value="Add" />}
                 </form>
             </section>
+            <Third/>
+            </main >
         </div>
     )
 

@@ -3,7 +3,10 @@ import db from '../data/firebase'
 import { collection, deleteDoc, doc, getDocs, orderBy, query, where } from 'firebase/firestore'
 import AuthContext from '../stores/AuthContext'
 import { useNavigate } from "react-router-dom";
-import classes from './viewexpenses.module.css'
+
+import Sidebar from './sidebar';
+import Third from './third';
+
 
 const Monthly = () => {
 
@@ -133,8 +136,11 @@ const Monthly = () => {
     }
 
     return (
-        <div>
-            <section className="getintouch">
+        <div className='home'>
+        <main className="dashboard">
+        <Sidebar/>
+        <div className="getintouch">
+            <section>
                 <h2>View Monthly Statement</h2>
                 <form onSubmit={submitHandler}>
                     <label htmlFor='month'>Month</label>
@@ -148,7 +154,7 @@ const Monthly = () => {
                 {<div className="owner">Net Profit : <span>{totalIncome - (totalExpense + totalBuilding)}</span></div>}
                 <div className={totalExpense ? 'datas' : ''}>
                     {expenses[0] && <h2 className='owner'>Expenses</h2>}
-                    {expenses[0] && <table class={classes.contentTable}>
+                    {expenses[0] && <table class="contentTable">
                         <thead>
                             <tr>
                                 <th>Room No.</th>
@@ -179,7 +185,7 @@ const Monthly = () => {
             <section className="informations">
                 <div className={totalBuilding ? 'datas' : ''}>
                 {building[0] && <h2 className='owner'>Building Expenses</h2>}
-                {building[0] && <table class={classes.contentTable}>
+                {building[0] && <table class="contentTable">
                     <thead>
                         <tr>
                             <th>Room No.</th>
@@ -209,7 +215,7 @@ const Monthly = () => {
             <section className="informations">
                 <div className={totalIncome ? 'datas' : ''}>
                     {incomes[0] && <h2 className='owner'>Income</h2>}
-                    {incomes[0] && <table class={classes.contentTable}>
+                    {incomes[0] && <table class="contentTable">
                         <thead>
                             <tr>
                                 <th>Room No.</th>
@@ -236,6 +242,9 @@ const Monthly = () => {
                 
             </section>
         </div>
+         <Third/>
+         </main >
+     </div>
     )
 
 }

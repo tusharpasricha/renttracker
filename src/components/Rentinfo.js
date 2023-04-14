@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import db from '../data/firebase'
 import { collection, doc, getDocs, orderBy, query, updateDoc, where } from 'firebase/firestore'
 import AuthContext from '../stores/AuthContext'
-import classes from './viewroom.module.css'
 import Viewexpense from './Viewexpense'
+import Sidebar from './sidebar';
+import Third from './third';
+
 
 const Rentinfo = () => {
 
@@ -82,9 +84,12 @@ const Rentinfo = () => {
     }
 
     return (
-        <div>
-            {user && rooms && <section className="getintouch">
-                <h2 className={classes.roomText}>Rent Info</h2>
+        <div className='home'>
+            <main className="dashboard">
+            <Sidebar/>
+            <div  className="getintouch">
+            {user && rooms && <section>
+                <h2 >Rent Info</h2>
                 <form onSubmit={submitHandler}>
                     <label htmlFor='room'>Room No.</label>
                     <select id="roomId">
@@ -99,7 +104,10 @@ const Rentinfo = () => {
                 {loading && <p className='owner'>Amount to be Paid : {amountToBePaid}</p>}
                 {loading && <p className='owner'>Date Upto Rent is Calculated : {period}</p>}
             </div>
+            </div>
             <Viewexpense/>
+            <Third/>
+            </main >
         </div>
 
     )

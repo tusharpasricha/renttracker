@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Sidebar from './components/sidebar'
+import Third from './components/third'
 import './home.css'
 import AuthContext from './stores/AuthContext'
 
@@ -7,24 +9,28 @@ const Home = () => {
 
     const { user, client } = useContext(AuthContext);
     const [name, setName] = useState('');
-
-
     useEffect(() => {
 
         setName(localStorage.getItem(user.uid));
-
     }, [])
+
+  
 
     return (
         <div className='home'>
             <main className="dashboard">
-                <section className="cover">
-                    <img src="img/welcome.svg" alt="Welcome" />
-                    <div className="coverDetails">
-                        
+                <Sidebar/>
+                <div className='second'>
+                    <div className='namebar'>
+                        <div>
                         {client && <p className='owner'>{name}</p>}
+                        </div>
+                        
+                        <div className='profile'>
+                               
+                        </div>
+
                     </div>
-                </section>
                 <div className="cards">
                     <Link to="/addroom">
                         <div className="card">
@@ -35,34 +41,24 @@ const Home = () => {
                     <Link to="/addexpense">
                         <div className="card">
                             <img src="img/expense.svg" alt="Cover" />
-                            <h4>EXPENSE</h4>
+                            <h4>ROOM EXPENSE</h4>
                         </div>
                     </Link>
-                    {/* <Link to="/viewexpenses">
-                        <div className="card">
-                            <img src="img/expenses.svg" alt="Cover" />
-                            <h4>Room Expenses</h4>
-                        </div>
-                    </Link> */}
-                    {/* <Link to="/building">
+             
+                    <Link to="/building">
                         <div className="card">
                             <img src="img/building.svg" alt="Cover" />
-                            <h4>Building Expenses</h4>
+                            <h4>BUILDING EXPENSE</h4>
                         </div>
-                    </Link> */}
+                    </Link>
                     
-                    {/* <Link to="/viewroom">
+                    <Link to="/viewroom">
                         <div className="card">
                             <img src="img/editroom.svg" alt="Cover" />
-                            <h4>Room Details</h4>
+                            <h4>ROOM DETAILS</h4>
                         </div>
-                    </Link> */}
-                    {/* <Link to="/electricitybill">
-                        <div className="card">
-                            <img src="img/electricity.svg" alt="Cover" />
-                            <h4>Electricity</h4>
-                        </div>
-                    </Link> */}
+                    </Link>
+                   
                     <Link to="/rooms">
                         <div className="card">
                             <img src="img/rooms.svg" alt="Cover" />
@@ -89,6 +85,8 @@ const Home = () => {
                     </Link>
                     
                 </div>
+                </div>
+               <Third/>
 
             </main >
 

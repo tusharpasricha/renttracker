@@ -2,9 +2,8 @@ import React, { useEffect, useState, useRef, useContext } from 'react'
 import db from '../data/firebase'
 import { collection, query, getDocs, addDoc, updateDoc, doc, where, orderBy } from 'firebase/firestore'
 import AuthContext from '../stores/AuthContext';
-import classes from './addexpense.module.css'
-import Building from './Building';
-import Viewexpense from './Viewexpense';
+import Sidebar from './sidebar';
+import Third from './third';
 
 const Addexpense = () => {
 
@@ -78,7 +77,10 @@ const Addexpense = () => {
     }
 
     return (
-        <div className={classes.addexpense}>
+        <div className='home'>
+        <main className="dashboard">
+        <Sidebar/>
+        {/* <div className={classes.addexpense}> */}
 
             {user && <section className="getintouch">
                 <h2>Add a Room Expense</h2>
@@ -100,7 +102,9 @@ const Addexpense = () => {
                 </form>
             </section>}
             
-            <Building/>
+           
+        <Third/>
+            </main >
         </div>
     )
 

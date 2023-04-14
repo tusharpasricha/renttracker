@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../stores/AuthContext';
 import { addDoc, collection } from 'firebase/firestore';
 import db from '../data/firebase';
+import Sidebar from './sidebar';
+import Third from './third';
 
 const Signup = () => {
 
@@ -55,8 +57,13 @@ const Signup = () => {
     }
 
     return (
-        <div className='login'>
-            <section className='getintouch'>
+        
+
+        <div className='home'>
+        <main className="dashboard">
+        <Sidebar/>
+        <div className='getintouch' >
+            <section className='login'>
                 <img src="img/signup.svg" alt="Signup" />
                 <form onSubmit={submitHandler}>
                     {error && <div className='error'>{error}</div>}
@@ -75,6 +82,9 @@ const Signup = () => {
                     <p className='link'>Already Have an account <Link to="/login">Login</Link></p>
                 </form>
             </section>
+        </div>
+        <Third/>
+            </main >
         </div>
     );
 

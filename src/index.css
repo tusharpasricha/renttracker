@@ -3,6 +3,9 @@
   padding: 0px;
   box-sizing: border-box;
 }
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
@@ -17,9 +20,17 @@
 }
 
 .getintouch {
-    background: var(--darkColor);
+    background-color: #E6DFF1;
     padding: 10px;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 20px;
+
 }
 
 .getintouch h2{
@@ -35,8 +46,8 @@ form {
     margin: auto;
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    background: var(--darkColor);
+    /* padding: 30px; */
+    /* background: var(--darkColor); */
     border-radius: 5px;
     font-family: 'Roboto Mono', monospace;
     border-color: var(--borderColor);
@@ -79,14 +90,14 @@ form input[type="submit"] {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: white;
 }
 
 .owner {
   text-align: center;
-  font-size: 23px;
-  margin-top: 30px;
-  font-family: 'Roboto';
+  font-size: 15px;
+  margin-top: 10px;
+  font-family: 'Oswald', sans-serif;
 }
 
 
@@ -106,9 +117,15 @@ a {
 .getintouch {
   display: flex;
 }
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .login img {
-  width: 40rem;
+  width: 10rem;
 }
 
 .btn {
@@ -143,7 +160,72 @@ a {
 .owner span {
   font-weight: bold;
 }
+.contentTable {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  width:90%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin: auto;
+  font-family: 'Nunito', sans-serif;
+  margin-top: 40px;
+}
 
+.contentTable thead tr {
+  background-color: #333232;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.contentTable th,
+.contentTable td {
+  padding: 12px 15px;
+}
+
+.contentTable tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.contentTable tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.contentTable tbody tr:last-of-type {
+  border-bottom: 2px solid #333232;
+}
+
+.contentTable tbody tr.active-row {
+  font-weight: bold;
+  color: #333232;
+}
+
+.customer_name {
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.customer_date {
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 940px) {
+
+  .contentTable {
+    width: 80%;
+  }
+
+
+}
 @media only screen and (max-width: 1224px) {
 
   form {
