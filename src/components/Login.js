@@ -46,6 +46,7 @@ const Login = () => {
 
         login(email, password).then(user => {
             console.log("Logged In Successfully");
+            navigation('/');
             getUserDetails(user.user.uid);
         }).catch(err => {
             setLoading(false);
