@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.cover {
+    /* border: 2px solid yellow; */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    
+  }
+  
+  .cover img {
+    width: 30rem;
+  }
+  
+  .coverDetails {
+    /* border: 2px solid lawngreen; */
+    padding: 20px;
+    margin-left: 80px;
+  }
+  
+  .coverDetails h2 {
+    font-size: 70px;
+  }
+  
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* border: 2px solid hotpink; */
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
+
+  }
+  
+  .card {
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+    background-color: #fff;
+    color: #000;
+    padding: 10px 80px;
+    border-radius: 20px;
+    transition: all 0.1s ease-in;
+    cursor: pointer;
+    margin-bottom: 30px;
+    box-shadow: 1px 3px 14px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 3px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 3px 14px 0px rgba(0,0,0,0.75);
+
+  }
+  
+  .card img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .card h4 {
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+  }
+
+  @media screen and (max-width: 1220px) {
+
+    .cards {
+      grid-template-columns: 1fr 1fr;
+      /* border: 2px solid red; */
+      padding: 30px;
+    }
+
+    .coverDetails h2 {
+      font-size: 50px;
+    }
+
+  }
+
+  @media screen and (max-width: 1030px) {
+
+    .cards {
+      grid-template-columns: 1fr;
+      /* border: 2px solid red; */
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      margin: auto;
+      margin-bottom: 40px;
+    }
+
+    .coverDetails h2 {
+      font-size: 50px;
+    }
+
+  }
+
+  @media screen and (max-width: 900px) {
+
+    .cover img {
+      width: 20rem;
+    }
+
+    .cover h2 {
+      font-size: 25px;
+    }
+
+    .owner {
+      font-size: 15px;
+    }
+
+  }
+
+  @media screen and (max-width: 610px) {
+
+    .owner {
+      margin-top: 12px;
+    }
+
+    .cards {
+      padding: 0px;
+    }
+
+    .cover {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .coverDetails {
+      /* border: 2px solid blue; */
+      width: 100%;
+      margin: auto;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .cover img {
+      width: 20rem;
+    }
+
+    .cards {
+      width: 100%;
+    }
+
+    .card {
+      width: 300px;
+      height: fit-content;
+      text-align: center;
+      padding: 10px 20px;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .card h4 {
+      /* border: 2px solid wheat; */
+      width: 100%;
+      margin-top: 15px;
+    }
+
+  }
