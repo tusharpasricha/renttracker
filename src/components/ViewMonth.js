@@ -52,8 +52,8 @@ const ViewMonth = () => {
                     <input type="submit" value="View" />
                 </form>
             </section>
-            <section>
-                <div>
+            <section >
+                <div className='monthlystatementplusexpense'>
                     {!expenses[0] && loading &&
                         <div className='owner'>No Data Available</div>
                     }

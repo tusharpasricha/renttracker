@@ -6,7 +6,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root{
@@ -41,17 +40,15 @@
 }
 
 form {
-    /* border: 2px solid coral; */
     width: 40%;
     margin: auto;
     display: flex;
     flex-direction: column;
-    /* padding: 30px; */
-    /* background: var(--darkColor); */
     border-radius: 5px;
     font-family: 'Roboto Mono', monospace;
     border-color: var(--borderColor);
     color: var(--headingColor);
+   
 }
 
 form label {
@@ -100,11 +97,6 @@ a {
   font-family: 'Oswald', sans-serif;
 }
 
-
-.developer {
-  font-family: 'Roboto';
-}
-
 .link {
   font-size: 14px;
   text-align: center;
@@ -122,6 +114,8 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+ 
+  height: 100%;
 }
 
 .login img {
@@ -133,7 +127,6 @@ a {
 }
 
 .error {
-  /* border: 2px solid red; */
   text-align: center;
   font-weight: bold;
   margin-bottom: 12px;
@@ -149,7 +142,6 @@ a {
 }
 
 .datas {
-  /* border: 2px solid black; */
   margin-top: 20px;
   width: fit-content;
   background-color: rgb(234, 234, 234);
@@ -238,15 +230,7 @@ a {
 
 }
 
-@media screen and (max-width: 1000px) {
 
-  .owner {
-    font-size: 23px;
-    font-weight: bold;
-  }
-
-
-}
 @media screen and (max-height: 900px) {
   form label {
     margin-bottom: 1px;

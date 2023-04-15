@@ -57,7 +57,6 @@ const Rooms = () => {
         <Sidebar/>
         <div className="getintouch">
             {user && <div>
-                
                 {loading && <div className="loading">Loading...</div>}
                 {rooms[0] && <table className="contentTable">
                     <thead>

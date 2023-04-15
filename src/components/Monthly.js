@@ -139,7 +139,8 @@ const Monthly = () => {
         <div className='home'>
         <main className="dashboard">
         <Sidebar/>
-        <div className="getintouch">
+        
+        <div className="getintouch overflow ">
             <section>
                 <h2>View Monthly Statement</h2>
                 <form onSubmit={submitHandler}>
@@ -242,6 +243,7 @@ const Monthly = () => {
                 
             </section>
         </div>
+        
          <Third/>
          </main >
      </div>
