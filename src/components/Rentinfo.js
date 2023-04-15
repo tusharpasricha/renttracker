@@ -101,8 +101,8 @@ const Rentinfo = () => {
                 </form>
             </section>}
             <div>
-                {loading && <p className='owner'>Amount to be Paid : {amountToBePaid}</p>}
-                {loading && <p className='owner'>Date Upto Rent is Calculated : {period}</p>}
+                {loading && <p className='owner'>DUE: {amountToBePaid}</p>}
+                {loading && <p className='owner'>TILL: {period}</p>}
             </div>
             </div>
             <Viewexpense/>
