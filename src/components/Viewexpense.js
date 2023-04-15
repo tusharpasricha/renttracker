@@ -2,9 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import db from '../data/firebase'
 import { collection, getDocs, orderBy, query, where } from 'firebase/firestore'
 import AuthContext from '../stores/AuthContext'
+import Sidebar from './sidebar';
+import Third from './third';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Viewexpense = () => {
+    const navigation = useNavigate();
 
     const [expenses, setExpenses] = useState([]);
     const [rooms, setRooms] = useState([]);
@@ -62,7 +66,12 @@ const Viewexpense = () => {
     }
 
     return (
+        <div className='home'>
+        <main className="dashboard">
+        <Sidebar/>
         <div className="getintouch">
+        <div className='back' onClick={()=>{navigation('/')}}>Back</div>
+
             <section >
                 <h2>View Expenses</h2>
                 <form onSubmit={submitHandler}>
@@ -102,7 +111,11 @@ const Viewexpense = () => {
                 </table>}
                 {expenses[0] && <div className='owner'>Total Amount : {amount}</div>}
             </section>
+            </div>
+            <Third/>
+            </main >
         </div>
+
     )
 
 }

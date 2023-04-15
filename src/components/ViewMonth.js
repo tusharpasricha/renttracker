@@ -2,12 +2,14 @@ import React, { useContext, useRef, useState } from 'react'
 import db from '../data/firebase'
 import { collection, getDocs, orderBy, query, where } from 'firebase/firestore'
 import AuthContext from '../stores/AuthContext'
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const ViewMonth = () => {
 
     const yearRef = useRef();
     const monthRef = useRef();
+    const navigation = useNavigate();
 
     const [expenses, setExpenses] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -43,6 +45,8 @@ const ViewMonth = () => {
     return (
         <div className="viewexpenses">
             <section className="getintouch">
+            <div className='back' onClick={()=>{navigation('/')}}>Back</div>
+
                 <h2>View Monthly Expenses</h2>
                 <form onSubmit={submitHandler}>
                     <label htmlFor='month'>Month</label>

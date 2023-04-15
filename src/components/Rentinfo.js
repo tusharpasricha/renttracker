@@ -5,6 +5,7 @@ import AuthContext from '../stores/AuthContext'
 import Viewexpense from './Viewexpense'
 import Sidebar from './sidebar';
 import Third from './third';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Rentinfo = () => {
@@ -13,6 +14,7 @@ const Rentinfo = () => {
     const [amountToBePaid, setAmountToBePaid] = useState(0);
     const [period, setPeriod] = useState(0);
     const [loading, setLoading] = useState(false);
+    const navigation = useNavigate();
 
     const { user } = useContext(AuthContext);
 
@@ -87,7 +89,10 @@ const Rentinfo = () => {
         <div className='home'>
             <main className="dashboard">
             <Sidebar/>
+
             <div  className="getintouch">
+            <div className='back' onClick={()=>{navigation('/')}}>Back</div>
+
             {user && rooms && <section>
                 <h2 >Rent Info</h2>
                 <form onSubmit={submitHandler}>
@@ -105,7 +110,7 @@ const Rentinfo = () => {
                 {loading && <p className='owner'>TILL: {period}</p>}
             </div>
             </div>
-            <Viewexpense/>
+    
             <Third/>
             </main >
         </div>

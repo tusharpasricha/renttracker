@@ -6,6 +6,7 @@ import db from "../data/firebase";
 import Sidebar from './sidebar';
 import Third from './third';
 
+
 const Rooms = () => {
 
     const [rooms, setRooms] = useState([]);
@@ -56,6 +57,7 @@ const Rooms = () => {
         <main className="dashboard">
         <Sidebar/>
         <div className="getintouch">
+<div className='back' onClick={()=>{navigation('/')}}>Back</div>
             {user && <div>
                 {loading && <div className="loading">Loading...</div>}
                 {rooms[0] && <table className="contentTable">

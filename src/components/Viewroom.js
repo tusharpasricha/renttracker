@@ -4,11 +4,12 @@ import AuthContext from '../stores/AuthContext'
 import db from '../data/firebase';
 import Sidebar from './sidebar';
 import Third from './third';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const Viewroom = () => {
 
-    // const roomId = 'yiyUA6PoMwqsPKG4B6Hh';
-    // const roomno = 104;
+    const navigation = useNavigate();
 
     const [rooms, setRooms] = useState([]);
 
@@ -164,6 +165,8 @@ const Viewroom = () => {
         <Sidebar/>
        
             {!isShown && <section className="getintouch">
+            <div className='back' onClick={()=>{navigation('/')}}>Back</div>
+
                 <h2 >Room Details</h2>
                 <form onSubmit={submitHandler}>
                     <label htmlFor='room'>Room No.</label>
@@ -176,6 +179,8 @@ const Viewroom = () => {
                 </form>
             </section>}
             {isShown && <section className="getintouch">
+            <div className='back' onClick={()=>{navigation('/')}}>Back</div>
+
                 <h2 >Room No {roomNo}</h2>
                 <form onSubmit={submitHandler1} >
                     <label htmlFor='room'>Room No.</label>

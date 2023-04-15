@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from './sidebar';
 import Third from './third';
 
-
 const Monthly = () => {
 
     const monthRef = useRef();
@@ -141,6 +140,8 @@ const Monthly = () => {
         <Sidebar/>
         
         <div className="getintouch overflow ">
+        <div className='back' onClick={()=>{navigation('/')}}>Back</div>
+
             <section>
                 <h2>View Monthly Statement</h2>
                 <form onSubmit={submitHandler}>

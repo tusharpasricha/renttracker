@@ -63,6 +63,7 @@ const Signup = () => {
         <main className="dashboard">
         <Sidebar/>
         <div className='getintouch' >
+            
             <section className='login'>
                 <img src="img/signup.svg" alt="Signup" />
                 <form onSubmit={submitHandler}>

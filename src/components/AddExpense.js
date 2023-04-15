@@ -4,6 +4,8 @@ import { collection, query, getDocs, addDoc, updateDoc, doc, where, orderBy } fr
 import AuthContext from '../stores/AuthContext';
 import Sidebar from './sidebar';
 import Third from './third';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const Addexpense = () => {
 
@@ -11,6 +13,7 @@ const Addexpense = () => {
     const [loading, setLoading] = useState(false);
 
     const { user } = useContext(AuthContext);
+    const navigation = useNavigate();
 
     const productRef = useRef();
     const priceRef = useRef();
@@ -83,6 +86,9 @@ const Addexpense = () => {
         {/* <div className={classes.addexpense}> */}
 
             {user && <section className="getintouch">
+                
+            <div className='back' onClick={()=>{navigation('/')}}>Back</div>
+
                 <h2>Add a Room Expense</h2>
                 <form onSubmit={submitHandler}>
                     {loading && <h3 className="loading">Loading...</h3>}

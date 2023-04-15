@@ -4,8 +4,10 @@ import { collection, addDoc } from 'firebase/firestore'
 import AuthContext from '../stores/AuthContext';
 import Sidebar from './sidebar';
 import Third from './third';
+import { Link, useNavigate } from 'react-router-dom';
 const Building = () => {
     const [loading, setLoading] = useState(false);
+    const navigation = useNavigate();
 
     const productRef = useRef();
     const priceRef = useRef();
@@ -46,6 +48,8 @@ const Building = () => {
         <main className="dashboard">
         <Sidebar/>
             <section className="getintouch">
+            <div className='back' onClick={()=>{navigation('/')}}>Back</div>
+
                 <h2>Add a Building Expense</h2>
                 <form onSubmit={submitHandler}>
                     {loading && <h3 className="loading">Loading...</h3>}

@@ -4,6 +4,7 @@ import AuthContext from '../stores/AuthContext'
 import db from "../data/firebase";
 import Third from "./third";
 import Sidebar from "./sidebar";
+import { Link, useNavigate } from 'react-router-dom';
 
 const Income = () => {
 
@@ -11,6 +12,8 @@ const Income = () => {
     const [loading, setLoading] = useState(false);
 
     const { user } = useContext(AuthContext);
+    const navigation = useNavigate();
+
 
     useEffect(() => {
 
@@ -82,6 +85,8 @@ const Income = () => {
             <main className="dashboard">
             <Sidebar/>
                 {user && <section className="getintouch">
+                <div className='back' onClick={()=>{navigation('/')}}>Back</div>
+
                     <h2>Deposit Rent</h2>
                     <form onSubmit={submitHandler}>
                         <label htmlFor='room'>Room No.</label>

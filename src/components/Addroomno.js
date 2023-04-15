@@ -3,11 +3,12 @@ import db from '../data/firebase';
 import { collection, addDoc } from "firebase/firestore";
 import AuthContext from '../stores/AuthContext'
 import '../home.css'
+import { Link, useNavigate } from 'react-router-dom';
 import Sidebar from './sidebar';
 import Third from './third';
 
 const AddRoomNo = () => {
-
+    const navigation = useNavigate();
     const roomRef = useRef();
     const personRef = useRef();
   
@@ -77,6 +78,7 @@ const AddRoomNo = () => {
             <main className="dashboard">
             <Sidebar/>
             <section className="getintouch">
+                <div className='back' onClick={()=>{navigation('/')}}>Back</div>
                 <h2>Add a New Room</h2>
                 <form onSubmit={submitHandler}>
                     {loading && <h3 className="owner">Loading...</h3>}

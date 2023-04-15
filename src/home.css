@@ -59,7 +59,7 @@ button:hover{
   margin-right: 30px;
 }
 .third_first{
-  font-size: 75px;
+  font-size: 3rem;
 }
 .third_second{
   width: 90%;
@@ -74,6 +74,7 @@ button:hover{
   .second{
     height: 100%;
     width: 50%;
+   
 
   }
   .profile{
@@ -109,7 +110,7 @@ button:hover{
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    width: 250px;
+    width: 200px;
     background-color: #F1DFDE;
     color: #000;
     border-radius: 20px;
@@ -138,6 +139,28 @@ button:hover{
   .overflow{
     overflow: scroll;
     width: 100%;
+  }
+  .back{
+    font-family: 'Oswald', sans-serif;
+  }
+  .navbar{
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-top: #F1DFDE solid 0.1px;
+    border-bottom: #F1DFDE solid 0.1px;
+    align-items: center;
+    height: 5vh;
+    padding-bottom: 10px;
+  }
+  .navbar div{
+    cursor: pointer;
+  }
+  .navbar div:hover{
+   text-decoration: underline;
   }
 
   @media screen and (max-width: 1220px) {
