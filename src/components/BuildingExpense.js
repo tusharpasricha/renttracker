@@ -2,10 +2,10 @@ import React, { useState, useRef, useContext } from 'react'
 import db from '../data/firebase'
 import { collection, addDoc } from 'firebase/firestore'
 import AuthContext from '../stores/AuthContext';
-import Sidebar from './sidebar';
-import Third from './third';
+import Sidebar from '../auth/sidebar';
+import Third from '../design/third';
 import { Link, useNavigate } from 'react-router-dom';
-const Building = () => {
+const BuildingExpense = () => {
     const [loading, setLoading] = useState(false);
     const navigation = useNavigate();
 
@@ -69,4 +69,4 @@ const Building = () => {
 
 }
 
-export default Building;
+export default BuildingExpense;

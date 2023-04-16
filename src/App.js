@@ -1,27 +1,24 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Addexpense from "./components/AddExpense";
-import AddRoomNo from "./components/Addroomno";
+import RoomExpense from "./components/RoomExpense";
 import Viewexpense from "./components/Viewexpense";
 import ViewMonth from "./components/ViewMonth";
-import Viewroom from "./components/Viewroom";
+import RoomDetailUpdate from "./components/RoomDetailUpdate";
 import Home from "./Home";
-import Income from "./components/Income";
+import DepositeRent from "./components/DepositeRent";
 import Monthly from "./components/Monthly";
-import Building from "./components/Building";
-import Rentinfo from "./components/Rentinfo";
-import Rooms from "./components/Rooms";
-import Login from './components/Login';
-import Signup from './components/Signup';
-
-import { AuthProvider } from './stores/AuthContext';
-import { getAuth } from 'firebase/auth';
+import BuildingExpense from "./components/BuildingExpense";
+import RentInfo from "./components/RentInfo";
+import AllotedRooms from "./components/AllotedRooms";
+import Login from "./auth/Login";
+import Signup from "./auth/Signup";
+import { AuthProvider } from "./stores/AuthContext";
+import { getAuth } from "firebase/auth";
 import RequireAuth from "./routes/PrivateRoute";
-import { app } from './data/firebase';
-
+import { app } from "./data/firebase";
+import AllotRoom from "./components/AllotRoom";
 
 function App() {
-
   const auth = getAuth(app);
 
   return (
@@ -43,7 +40,7 @@ function App() {
               path="/addroom"
               element={
                 <RequireAuth>
-                  <AddRoomNo />
+                  <AllotRoom />
                 </RequireAuth>
               }
             />
@@ -51,7 +48,7 @@ function App() {
               path="/viewroom"
               element={
                 <RequireAuth>
-                  <Viewroom />
+                  <RoomDetailUpdate />
                 </RequireAuth>
               }
             />
@@ -75,16 +72,16 @@ function App() {
               path="/addexpense"
               element={
                 <RequireAuth>
-                  <Addexpense />
+                  <RoomExpense />
                 </RequireAuth>
               }
             />
-            
+
             <Route
               path="/income"
               element={
                 <RequireAuth>
-                  <Income />
+                  <DepositeRent/>
                 </RequireAuth>
               }
             />
@@ -100,7 +97,7 @@ function App() {
               path="/building"
               element={
                 <RequireAuth>
-                  <Building />
+                  <BuildingExpense />
                 </RequireAuth>
               }
             />
@@ -108,7 +105,7 @@ function App() {
               path="/rentinfo"
               element={
                 <RequireAuth>
-                  <Rentinfo />
+                  <RentInfo />
                 </RequireAuth>
               }
             />
@@ -116,11 +113,10 @@ function App() {
               path="/rooms"
               element={
                 <RequireAuth>
-                  <Rooms />
+                  <AllotedRooms />
                 </RequireAuth>
               }
             />
-
           </Routes>
         </BrowserRouter>
       </div>

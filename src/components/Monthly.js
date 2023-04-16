@@ -4,8 +4,8 @@ import { collection, deleteDoc, doc, getDocs, orderBy, query, where } from 'fire
 import AuthContext from '../stores/AuthContext'
 import { useNavigate } from "react-router-dom";
 
-import Sidebar from './sidebar';
-import Third from './third';
+import Sidebar from '../auth/sidebar';
+import Third from '../design/third';
 
 const Monthly = () => {
 

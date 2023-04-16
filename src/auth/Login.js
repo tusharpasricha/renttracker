@@ -4,7 +4,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore'
 import db from '../data/firebase'
 import { Link, useNavigate } from 'react-router-dom';
 import Sidebar from './sidebar';
-import Third from './third';
+import Third from '../design/third';
 
 const Login = () => {
 

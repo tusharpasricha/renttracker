@@ -4,7 +4,7 @@ import AuthContext from '../stores/AuthContext';
 import { addDoc, collection } from 'firebase/firestore';
 import db from '../data/firebase';
 import Sidebar from './sidebar';
-import Third from './third';
+import Third from '../design/third';
 
 const Signup = () => {
 

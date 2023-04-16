@@ -2,15 +2,14 @@ import { addDoc, collection, getDocs, query, doc, updateDoc, where, orderBy } fr
 import React, { useContext, useEffect, useState } from "react";
 import AuthContext from '../stores/AuthContext'
 import db from "../data/firebase";
-import Third from "./third";
-import Sidebar from "./sidebar";
-import { Link, useNavigate } from 'react-router-dom';
+import Third from "../design/third";
+import Sidebar from "../auth/sidebar";
+import {useNavigate } from 'react-router-dom';
 
-const Income = () => {
+const DepositeRent = () => {
 
     const [rooms, setRooms] = useState([]);
     const [loading, setLoading] = useState(false);
-
     const { user } = useContext(AuthContext);
     const navigation = useNavigate();
 
@@ -109,4 +108,4 @@ const Income = () => {
 
 }
 
-export default Income;
+export default DepositeRent;

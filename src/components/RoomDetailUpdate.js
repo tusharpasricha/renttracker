@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { collection, query, where, getDocs, doc, updateDoc, orderBy } from "firebase/firestore";
 import AuthContext from '../stores/AuthContext'
 import db from '../data/firebase';
-import Sidebar from './sidebar';
-import Third from './third';
+import Sidebar from '../auth/sidebar';
+import Third from '../design/third';
 import { Link, useNavigate } from 'react-router-dom';
 
 

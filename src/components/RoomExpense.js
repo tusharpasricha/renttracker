@@ -2,12 +2,12 @@ import React, { useEffect, useState, useRef, useContext } from 'react'
 import db from '../data/firebase'
 import { collection, query, getDocs, addDoc, updateDoc, doc, where, orderBy } from 'firebase/firestore'
 import AuthContext from '../stores/AuthContext';
-import Sidebar from './sidebar';
-import Third from './third';
-import { Link, useNavigate } from 'react-router-dom';
+import Sidebar from '../auth/sidebar';
+import Third from '../design/third';
+import { useNavigate } from 'react-router-dom';
 
 
-const Addexpense = () => {
+const RoomExpense = () => {
 
     const [rooms, setRooms] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -83,7 +83,7 @@ const Addexpense = () => {
         <div className='home'>
         <main className="dashboard">
         <Sidebar/>
-        {/* <div className={classes.addexpense}> */}
+        {/* <div className={classes.RoomExpense}> */}
 
             {user && <section className="getintouch">
                 
@@ -116,4 +116,4 @@ const Addexpense = () => {
 
 }
 
-export default Addexpense;
+export default RoomExpense;

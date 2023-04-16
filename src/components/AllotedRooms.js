@@ -3,11 +3,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from '../stores/AuthContext'
 import db from "../data/firebase";
-import Sidebar from './sidebar';
-import Third from './third';
+import Sidebar from '../auth/sidebar';
+import Third from '../design/third';
 
 
-const Rooms = () => {
+const AllotedRooms = () => {
 
     const [rooms, setRooms] = useState([]);
     const navigation = useNavigate();
@@ -25,7 +25,8 @@ const Rooms = () => {
                 docs.forEach(doc => {
                     roomsData = [...roomsData, {
                         roomNo: doc.data().roomNo,
-                        roomId: doc.id
+                        roomId: doc.id,
+                        personName: doc.data().personName
                     }]
                 })
                 setLoading(false);
@@ -64,15 +65,17 @@ const Rooms = () => {
                     <thead>
                         <tr>
                             <th>Room No.</th>
+                            <th>Name</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {rooms.map(expense => (
-                            <tr key={expense.roomId}>
-                                <td>{expense.roomNo}</td>
+                        {rooms.map(r => (
+                            <tr key={r.roomId}>
+                                <td>{r.roomNo}</td>
+                                <td>{r.personName}</td>
                                 <td><img src="img/delete.png" alt="Delete" onClick={() => {
-                                    deleteRoom(expense.roomId);
+                                    deleteRoom(r.roomId);
                                 }} /></td>
                             </tr>
                         ))}
@@ -88,4 +91,4 @@ const Rooms = () => {
     )
 
 }
-export default Rooms;
+export default AllotedRooms;
