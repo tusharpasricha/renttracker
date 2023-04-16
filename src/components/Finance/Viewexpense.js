@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import db from '../data/firebase'
+import db from '../../data/firebase'
 import { collection, getDocs, orderBy, query, where } from 'firebase/firestore'
-import AuthContext from '../stores/AuthContext'
-import Sidebar from '../auth/sidebar';
-import Third from '../design/third';
+import AuthContext from '../../stores/AuthContext'
+import Sidebar from '../../auth/sidebar';
+import Third from '../../design/third';
 import { Link, useNavigate } from 'react-router-dom';
 
 

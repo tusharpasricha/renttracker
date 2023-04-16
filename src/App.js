@@ -1,22 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import RoomExpense from "./components/RoomExpense";
-import Viewexpense from "./components/Viewexpense";
-import ViewMonth from "./components/ViewMonth";
-import RoomDetailUpdate from "./components/RoomDetailUpdate";
+import RoomExpense from "./components/Finance/RoomExpense";
+import Viewexpense from "./components/Finance/Viewexpense";
+import ViewMonth from "./components/Finance/ViewMonth";
+import RoomDetailUpdate from "./components/Room/RoomDetailUpdate";
 import Home from "./Home";
-import DepositeRent from "./components/DepositeRent";
-import Monthly from "./components/Monthly";
-import BuildingExpense from "./components/BuildingExpense";
-import RentInfo from "./components/RentInfo";
-import AllotedRooms from "./components/AllotedRooms";
+import DepositeRent from "./components/Rent/DepositeRent";
+import Monthly from "./components/Finance/Monthly";
+import BuildingExpense from "./components/Finance/BuildingExpense";
+import RentInfo from "./components/Rent/RentInfo";
+import AllotedRooms from "./components/Room/AllotedRooms";
 import Login from "./auth/Login";
 import Signup from "./auth/Signup";
 import { AuthProvider } from "./stores/AuthContext";
 import { getAuth } from "firebase/auth";
 import RequireAuth from "./routes/PrivateRoute";
 import { app } from "./data/firebase";
-import AllotRoom from "./components/AllotRoom";
+import AllotRoom from "./components/Room/AllotRoom";
 
 function App() {
   const auth = getAuth(app);

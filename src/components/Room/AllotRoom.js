@@ -1,11 +1,10 @@
 import React, { useContext, useRef, useState } from "react";
-import db from "../data/firebase";
+import db from "../../data/firebase";
 import { collection, addDoc } from "firebase/firestore";
-import AuthContext from "../stores/AuthContext";
-import "../home.css";
+import AuthContext from "../../stores/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import Sidebar from "../auth/sidebar";
-import Third from "../design/third";
+import Sidebar from "../../auth/sidebar";
+import Third from "../../design/third";
 
 const AllotRoom = () => {
   const navigation = useNavigate();

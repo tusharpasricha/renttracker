@@ -1,10 +1,10 @@
 import { collection, deleteDoc, doc, getDocs, orderBy, query, where } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthContext from '../stores/AuthContext'
-import db from "../data/firebase";
-import Sidebar from '../auth/sidebar';
-import Third from '../design/third';
+import AuthContext from '../../stores/AuthContext'
+import db from "../../data/firebase";
+import Sidebar from '../../auth/sidebar';
+import Third from '../../design/third';
 
 
 const AllotedRooms = () => {

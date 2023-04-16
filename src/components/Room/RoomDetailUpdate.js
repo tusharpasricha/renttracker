@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { collection, query, where, getDocs, doc, updateDoc, orderBy } from "firebase/firestore";
-import AuthContext from '../stores/AuthContext'
-import db from '../data/firebase';
-import Sidebar from '../auth/sidebar';
-import Third from '../design/third';
+import AuthContext from '../../stores/AuthContext'
+import db from '../../data/firebase';
+import Sidebar from '../../auth/sidebar';
+import Third from '../../design/third';
 import { Link, useNavigate } from 'react-router-dom';
 
 
@@ -142,21 +142,6 @@ const Viewroom = () => {
                 setLoading(false);
             })
         }
-        // const roomRef = collection(db, 'rooms', roomId);
-
-        // setDoc(doc(roomRef, roomId), {
-        //     roomNo: roomNo,
-        //     meterReading: meterReading,
-        //     personName: personName,
-        //     month: parseInt(month),
-        //     year: parseInt(year),
-        //     day: parseInt(day)
-        // }).then(() => {
-        //     alert('Updated Successfully');
-        //     setLoading(false);
-        // }).catch(err => {
-        //     console.log(err);
-        // })
     }
 
     return (
