@@ -58,7 +58,7 @@ const Home = () => {
             </div>
           </div>
 
-          {g1 && (
+          {g1 ?
             <div className="cards">
               <Link to="/addroom">
                 <div className="card">
@@ -80,8 +80,9 @@ const Home = () => {
                 </div>
               </Link>
             </div>
-          )}
-          {g2 && (
+            :null
+          }
+          {g2 ?
             <div className="cards">
               <Link to="/rentinfo">
                 <div className="card">
@@ -96,8 +97,9 @@ const Home = () => {
                 </div>
               </Link>
             </div>
-          )}
-          {g3 && (
+            :null
+          }
+          {g3 ?
             <div className="cards">
               <Link to="/addexpense">
                 <div className="card">
@@ -125,7 +127,8 @@ const Home = () => {
                 </div>
               </Link>
             </div>
-          )}
+            :null
+          }
         </div>
         <Third />
       </main>

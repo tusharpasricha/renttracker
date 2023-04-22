@@ -4,11 +4,12 @@ import { collection, deleteDoc, doc, getDocs, orderBy, query, where } from 'fire
 import AuthContext from '../../stores/AuthContext'
 import { useNavigate } from "react-router-dom";
 
+
 import Sidebar from '../../auth/sidebar';
 import Third from '../../design/third';
 
-const Monthly = () => {
-
+const MonthlyStatement = () => {
+    const { getMonth } = useContext(AuthContext);
     const monthRef = useRef();
     const yearRef = useRef();
     const navigation = useNavigate();
@@ -66,6 +67,7 @@ const Monthly = () => {
                 }]
             })
             setIncomes(incomeData);
+            console.log("incomedata")
             // setLoading(true);
             setTotalIncome(amount);
             return getDocs(query(collection(db, "building"), where("userId", "==", user.uid), where("month", "==", month), where("year", "==", year), orderBy("date")))
@@ -190,7 +192,7 @@ const Monthly = () => {
                 {building[0] && <table class="contentTable">
                     <thead>
                         <tr>
-                            <th>Room No.</th>
+                            <th>Date</th>
                             <th>Product</th>
                             <th>Price</th>
                             <th>Delete</th>
@@ -199,7 +201,7 @@ const Monthly = () => {
                     <tbody>
                         {building.map(expense => (
                             <tr key={expense.expenseId}>
-                                <td>Building Expenses</td>
+                                <td>{getMonth(expense.month)}-{expense.year}</td>
                                 <td>{expense.product}</td>
                                 <td>{expense.amount}</td>
                                 <td><img src="img/delete.png" alt="Delete" onClick={() => {
@@ -252,4 +254,4 @@ const Monthly = () => {
 
 }
 
-export default Monthly;
+export default MonthlyStatement;

@@ -1,12 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import RoomExpense from "./components/Finance/RoomExpense";
-import Viewexpense from "./components/Finance/Viewexpense";
+import ViewRoomExpense from "./components/Finance/ViewRoomExpense";
 import ViewMonth from "./components/Finance/ViewMonth";
 import RoomDetailUpdate from "./components/Room/RoomDetailUpdate";
 import Home from "./Home";
 import DepositeRent from "./components/Rent/DepositeRent";
-import Monthly from "./components/Finance/Monthly";
 import BuildingExpense from "./components/Finance/BuildingExpense";
 import RentInfo from "./components/Rent/RentInfo";
 import AllotedRooms from "./components/Room/AllotedRooms";
@@ -17,6 +16,7 @@ import { getAuth } from "firebase/auth";
 import RequireAuth from "./routes/PrivateRoute";
 import { app } from "./data/firebase";
 import AllotRoom from "./components/Room/AllotRoom";
+import MonthlyStatement from "./components/Finance/MonthlyStatement";
 
 function App() {
   const auth = getAuth(app);
@@ -56,7 +56,7 @@ function App() {
               path="/viewexpenses"
               element={
                 <RequireAuth>
-                  <Viewexpense />
+                  <ViewRoomExpense />
                 </RequireAuth>
               }
             />
@@ -89,7 +89,7 @@ function App() {
               path="/monthly"
               element={
                 <RequireAuth>
-                  <Monthly />
+                  <MonthlyStatement />
                 </RequireAuth>
               }
             />

@@ -7,7 +7,7 @@ import Third from '../../design/third';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-const Viewexpense = () => {
+const ViewRoomExpense = () => {
     const navigation = useNavigate();
 
     const [expenses, setExpenses] = useState([]);
@@ -120,4 +120,4 @@ const Viewexpense = () => {
 
 }
 
-export default Viewexpense;
+export default ViewRoomExpense;
