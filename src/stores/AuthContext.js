@@ -54,6 +54,15 @@ export const AuthProvider = ({ children }) => {
                 break;
         }
     }
+    //const MONTHS = [
+        //     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        //     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        //   ];
+          
+        //   const getMonth = (month) => {
+        //     return MONTHS[month - 1] || "";
+        //   };
+          
 
     const value = {
         signup,

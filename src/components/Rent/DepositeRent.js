@@ -35,49 +35,85 @@ const DepositeRent = () => {
 
     }, [])
 
-    const submitHandler = (e) => {
+    // const submitHandler = (e) => {
 
-        setLoading(true);
+    //     setLoading(true);
 
-        e.preventDefault();
-        const roomId = e.target.roomId.value;
-        const roomInfo = rooms.filter(room => room.roomId === roomId)[0]
-        const roomNo = roomInfo.roomNo;
-        let paid = roomInfo.paid;
-        const amount = parseInt(e.target.totalAmount.value);
+    //     e.preventDefault();
+    //     const roomId = e.target.roomId.value;
+    //     const roomInfo = rooms.filter(room => room.roomId === roomId)[0]
+    //     const roomNo = roomInfo.roomNo;
+    //     let paid = roomInfo.paid;
+    //     const amount = parseInt(e.target.totalAmount.value);
 
-        const date = e.target.date.value;
+    //     const date = e.target.date.value;
 
-        const month = parseInt(date.split('-')[1]);
-        const year = parseInt(date.split('-')[0]);
+    //     const month = parseInt(date.split('-')[1]);
+    //     const year = parseInt(date.split('-')[0]);
 
-        const userID = user.uid;
+    //     const userID = user.uid;
 
-        const date1 = new Date();
+    //     const date1 = new Date();
 
-        addDoc(collection(db, "income"), {
-            roomId: roomId,
-            roomNo: roomNo,
-            amount: amount,
-            month: month,
-            year: year,
-            date: date1,
-            userId: user.uid
-        }).then(() => {
-            const roomDoc = doc(db, "rooms", roomId);
-            paid = paid + amount
-            updateDoc(roomDoc, {
-                paid: paid
-            }).then(() => {
-                alert('Added Successfully');
-                setLoading(false);
-                e.target.reset();
-            })
-        }).catch(err => {
-            console.log(err);
-        })
+    //     addDoc(collection(db, "income"), {
+    //         roomId: roomId,
+    //         roomNo: roomNo,
+    //         amount: amount,
+    //         month: month,
+    //         year: year,
+    //         date: date1,
+    //         userId: user.uid
+    //     }).then(() => {
+    //         const roomDoc = doc(db, "rooms", roomId);
+    //         paid = paid + amount
+    //         updateDoc(roomDoc, {
+    //             paid: paid
+    //         }).then(() => {
+    //             alert('Added Successfully');
+    //             setLoading(false);
+    //             e.target.reset();
+    //         })
+    //     }).catch(err => {
+    //         console.log(err);
+    //     })
 
-    }
+    // }
+    const submitHandler = async (e) => {
+        try {
+          e.preventDefault();
+          setLoading(true);
+          
+          const roomId = e.target.roomId.value;
+          const roomInfo = rooms.find(room => room.roomId === roomId);
+          const { roomNo, paid } = roomInfo;
+          const amount = parseInt(e.target.totalAmount.value);
+          const [year, month] = e.target.date.value.split('-');
+          const userID = user.uid;
+          const date = new Date();
+          
+          await addDoc(collection(db, 'income'), {
+            roomId,
+            roomNo,
+            amount,
+            month: parseInt(month),
+            year: parseInt(year),
+            date,
+            userId: userID
+          });
+          
+          const roomDoc = doc(db, 'rooms', roomId);
+          const updatedPaid = paid + amount;
+          
+          await updateDoc(roomDoc, { paid: updatedPaid });
+          
+          alert('Added Successfully');
+          setLoading(false);
+          e.target.reset();
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      
 
     return (
         <div className='home'>
