@@ -15,7 +15,7 @@ const DepositeRent = () => {
 
 
     useEffect(() => {
-
+        console.log("getting the rooms");
         const q = query(collection(db, "rooms"), where("userId", "==", user.uid), orderBy("roomNo"));
         getDocs(q).then(docs => {
             let roomsData = [];
@@ -32,56 +32,15 @@ const DepositeRent = () => {
         }).catch(err => {
             console.log(err);
         })
+        console.log("got rooms");
 
     }, [])
 
-    // const submitHandler = (e) => {
-
-    //     setLoading(true);
-
-    //     e.preventDefault();
-    //     const roomId = e.target.roomId.value;
-    //     const roomInfo = rooms.filter(room => room.roomId === roomId)[0]
-    //     const roomNo = roomInfo.roomNo;
-    //     let paid = roomInfo.paid;
-    //     const amount = parseInt(e.target.totalAmount.value);
-
-    //     const date = e.target.date.value;
-
-    //     const month = parseInt(date.split('-')[1]);
-    //     const year = parseInt(date.split('-')[0]);
-
-    //     const userID = user.uid;
-
-    //     const date1 = new Date();
-
-    //     addDoc(collection(db, "income"), {
-    //         roomId: roomId,
-    //         roomNo: roomNo,
-    //         amount: amount,
-    //         month: month,
-    //         year: year,
-    //         date: date1,
-    //         userId: user.uid
-    //     }).then(() => {
-    //         const roomDoc = doc(db, "rooms", roomId);
-    //         paid = paid + amount
-    //         updateDoc(roomDoc, {
-    //             paid: paid
-    //         }).then(() => {
-    //             alert('Added Successfully');
-    //             setLoading(false);
-    //             e.target.reset();
-    //         })
-    //     }).catch(err => {
-    //         console.log(err);
-    //     })
-
-    // }
     const submitHandler = async (e) => {
         try {
           e.preventDefault();
           setLoading(true);
+          console.log("depositing the rent");
           
           const roomId = e.target.roomId.value;
           const roomInfo = rooms.find(room => room.roomId === roomId);
@@ -105,6 +64,8 @@ const DepositeRent = () => {
           const updatedPaid = paid + amount;
           
           await updateDoc(roomDoc, { paid: updatedPaid });
+          console.log("deposited");
+
           
           alert('Added Successfully');
           setLoading(false);

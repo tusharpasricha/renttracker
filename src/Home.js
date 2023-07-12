@@ -1,19 +1,22 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+import "./Home.css";
+
 import Sidebar from "./auth/sidebar";
+
 import Third from "./design/third";
-import "./home.css";
+
 import AuthContext from "./stores/AuthContext";
 
 const Home = () => {
   const { user, client } = useContext(AuthContext);
-  const [name, setName] = useState("");
   const [g1, setg1] = useState(1);
   const [g2, setg2] = useState(0);
   const [g3, setg3] = useState(0);
   useEffect(() => {
-    setName(localStorage.getItem(user.uid));
-  }, []);
+    console.log('user is '+ user.uid , user.email);
+  }, [user.uid]);
 
   return (
     <div className="home">
@@ -21,13 +24,14 @@ const Home = () => {
         <Sidebar />
         <div className="second">
           <div className="namebar">
-            <div>{client && <p className="owner">{name}</p>}</div>
+            <div>{client && <p className="owner">{user.email}</p>}</div>
 
             <div className="profile"></div>
           </div>
           <div className="navbar">
             <div
               onClick={() => {
+                console.log("Group1");
                 setg1(1);
                 setg2(0);
                 setg3(0);
@@ -38,6 +42,7 @@ const Home = () => {
             </div>
             <div
               onClick={() => {
+                console.log("Group2");
                 setg2(1);
                 setg1(0);
                 setg3(0);
@@ -48,6 +53,7 @@ const Home = () => {
             </div>
             <div
               onClick={() => {
+                console.log("Group3");
                 setg3(1);
                 setg1(0);
                 setg2(0);

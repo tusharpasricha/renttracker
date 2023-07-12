@@ -1,19 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { collection, query, where, getDocs, doc, updateDoc, orderBy } from "firebase/firestore";
-import AuthContext from '../../stores/AuthContext'
-import db from '../../data/firebase';
+import {useNavigate } from 'react-router-dom';
+
 import Sidebar from '../../auth/sidebar';
 import Third from '../../design/third';
-import { Link, useNavigate } from 'react-router-dom';
+
+import AuthContext from '../../stores/AuthContext'
+
+import { collection, query, where, getDocs, doc, updateDoc, orderBy } from "firebase/firestore";
+import db from '../../data/firebase';
+
 
 
 const Viewroom = () => {
 
     const navigation = useNavigate();
+    const { user } = useContext(AuthContext);
 
     const [rooms, setRooms] = useState([]);
 
-    const { user } = useContext(AuthContext);
 
     const [roomNo, setRoomNo] = useState();
     const [roomId, setRoomId] = useState();
@@ -32,7 +36,6 @@ const Viewroom = () => {
 
 
     useEffect(() => {
-
         const q = query(collection(db, "rooms"), where("userId", "==", user.uid), orderBy("roomNo"));
         getDocs(q).then(docs => {
             let roomsData = [];
@@ -99,7 +102,7 @@ const Viewroom = () => {
     }
 
     const submitHandler1 = (e) => {
-
+        console.log('UPDATING THE INFO');
         e.preventDefault();
         setLoading(true);
         console.log(e.target.date.value);
@@ -108,7 +111,6 @@ const Viewroom = () => {
         const day = date.split('-')[2];
         if (parseInt(year) === parseInt(room.date.split('-')[0]) && parseInt(month) === parseInt(room.date.split('-')[1]) && parseInt(day) === parseInt(room.date.split('-')[2])) {
             const roomRef = doc(db, "rooms", roomId);
-            console.log('I m here');
             updateDoc(roomRef, {
                 roomNo: roomNo,
                 
@@ -117,6 +119,7 @@ const Viewroom = () => {
                 year: parseInt(year),
                 day: parseInt(day)
             }).then(() => {
+                console.log('Updated Successfully');
                 alert('Updated Successfully');
                 setLoading(false);
             })

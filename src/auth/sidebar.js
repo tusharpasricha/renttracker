@@ -1,11 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
-import "../home.css"
+import React, { useContext } from 'react'
+import "../Home.css"
 import AuthContext from '../stores/AuthContext'
 
 const Sidebar = () => {
 
     const { logout } = useContext(AuthContext);
     const { user, client } = useContext(AuthContext);
+    // console.log("(Sidebar)user is "+JSON.stringify(user) );
+    // console.log("(Sidebar)client is "+JSON.stringify(client) );
     const logoutHandler = () => {
         logout().then(() => {
             console.log('Logout Successful');

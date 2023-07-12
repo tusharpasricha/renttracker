@@ -22,7 +22,7 @@ const RentInfo = () => {
     }
 
     useEffect(() => {
-
+        console.log("geting the rooms");
         const q = query(collection(db, "rooms"), where("userId", "==", user.uid), orderBy("roomNo"));
         getDocs(q).then(docs => {
             let roomsData = [];
@@ -37,15 +37,16 @@ const RentInfo = () => {
                 }]
             })
             setRooms(roomsData);
+            console.log("roomsData" +JSON.stringify( roomsData))
         })
-
+        console.log("got rooms");
     }, [])
 
     const submitHandler = (e) => {
 
         e.preventDefault();
         const roomId = e.target.roomId.value;
-        console.log(roomId);
+        console.log("room id:" + roomId);
 
         const roomData = rooms.filter(room => room.roomId === roomId)[0];
         console.log(roomData);

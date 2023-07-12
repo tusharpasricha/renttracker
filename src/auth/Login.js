@@ -47,6 +47,8 @@ const Login = () => {
             const userCredential = await login(email, password);
             const user = await getUserDetails(userCredential.user.uid);
             localStorage.setItem('user', JSON.stringify(user));
+            console.log("LOGIN SUCCESSFUL");
+            console.log("user"+user);
             navigation('/');
         } catch (error) {
             console.log(error);

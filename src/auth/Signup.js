@@ -1,56 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import AuthContext from '../stores/AuthContext';
-import { addDoc, collection } from 'firebase/firestore';
-import db from '../data/firebase';
 import Sidebar from './sidebar';
 import Third from '../design/third';
 
-const Signup = () => {
+import AuthContext from '../stores/AuthContext';
 
+import { addDoc, collection } from 'firebase/firestore';
+import db from '../data/firebase';
+
+
+const Signup = () => {
     const { signup } = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigation = useNavigate();
-    //   const submitHandler = async (e) => {
-        //     e.preventDefault();
-        //     setError('');
-        
-        //     const name = e.target.name.value;
-        //     const email = e.target.email.value;
-        //     const password = e.target.password.value;
-        //     const confirmPassword = e.target.confirmPassword.value;
-        
-        //     if (!password || !confirmPassword || !name || !email) {
-        //       return setError('Some fields are empty');
-        //     }
-        
-        //     if (password !== confirmPassword) {
-        //       return setError('Passwords do not match');
-        //     }
-        
-        //     try {
-        //       const user = await signup(email, password);
-        //       const uid = user.user.uid;
-        //       await addDoc(collection(db, 'users'), {
-        //         uid: uid,
-        //         name: name
-        //       });
-        //       console.log('Signup Successful');
-        //       navigation('/');
-        //     } catch (err) {
-        //       const error = err.message.split('/')[1].split(')')[0].split('-');
-        //       let errorString = '';
-        //       error.forEach((err) => {
-        //         errorString += err.toLocaleUpperCase();
-        //         errorString += ' ';
-        //       });
-        //       console.log(errorString);
-        //       setError(errorString);
-        //     }
-        //   };
-
     const submitHandler = (e) => {
-
         e.preventDefault();
         setError('');
 
@@ -67,7 +30,7 @@ const Signup = () => {
         if (password === confirmPassword) {
             signup(email, password).then(user => {
                 uid = user.user.uid;
-                console.log(uid);
+                console.log("uid:"+uid);
                 return addDoc(collection(db, "users"), {
                     uid: uid,
                     name: e.target.name.value
