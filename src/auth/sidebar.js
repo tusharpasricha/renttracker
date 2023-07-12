@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import "../Home.css"
+import "../home.css"
 import AuthContext from '../stores/AuthContext'
 
 const Sidebar = () => {
