@@ -36,6 +36,7 @@ const Viewroom = () => {
 
 
     useEffect(() => {
+        console.log("called");
         const q = query(collection(db, "rooms"), where("userId", "==", user.uid), orderBy("roomNo"));
         getDocs(q).then(docs => {
             let roomsData = [];

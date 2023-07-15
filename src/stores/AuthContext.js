@@ -10,18 +10,18 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [client, setClient] = useState({});
 
-    const auth = getAuth(app);
+    const auth = getAuth(app);//initializes the firebase authentication instance
 
     const signup = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(auth, email, password); // return a promise representing signup process
     }
 
     const login = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
+        return signInWithEmailAndPassword(auth, email, password);// return a promise representing login process
     }
 
     const logout = () => {
-        return signOut(auth);
+        return signOut(auth);// return a promise representing logout process
     }
 
     const getMonth = (month) => {
@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-
+        // function from Firebase authentication, which listens to changes in the user's authentication state. 
         const unsubscribe = onAuthStateChanged(auth, user => {
             setUser(user);
             setLoading(false);
@@ -84,7 +84,8 @@ export const AuthProvider = ({ children }) => {
         return unsubscribe;
 
     }, [])
-
+    //The Provider component is responsible for providing the context data to all the components that are descendants of it.
+    //When the value of the context changes, all the components consuming that context will re-render.
     return (
         <AuthContext.Provider value={value}>
             {!loading && children}

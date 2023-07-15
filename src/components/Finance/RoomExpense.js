@@ -22,7 +22,7 @@ const RoomExpense = () => {
     let roomsData = [];
 
     useEffect(() => {
-
+        console.log("called");
         const q = query(collection(db, "rooms"), where("userId", "==", user.uid), orderBy("roomNo"));
 
         getDocs(q).then(docs => {
@@ -38,7 +38,7 @@ const RoomExpense = () => {
             console.log(err);
         })
 
-    }, [])
+    },[])
 
     const submitHandler = (e) => {
 
