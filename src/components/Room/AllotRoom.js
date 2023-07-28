@@ -35,7 +35,7 @@ const AllotRoom = () => {
 
     if (alreadyAlloted) {
       console.log("Room already allotted");
-      alert("Room already allotted to you.");
+      alert("Room already allotted.");
       setLoading(false);
     } else {
       const personName = personRef.current.value;
