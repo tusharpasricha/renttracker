@@ -7,7 +7,8 @@ import Third from "../../design/third";
 import AuthContext from "../../stores/AuthContext";
 
 import db from "../../data/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs, orderBy, query, where } from "firebase/firestore";
+import {  addDoc } from "firebase/firestore";
 
 const AllotRoom = () => {
   const navigation = useNavigate();
@@ -44,27 +45,50 @@ const AllotRoom = () => {
     const next = `${nextDate.getFullYear()}-${(nextDate.getMonth() + 1).toString().padStart(2, '0')}-${nextDate.getDate().toString().padStart(2, '0')}`;
     console.log("next date:" + next);
 
-    addDoc(collection(db, "rooms"), {
-      roomNo: parseInt(roomNo),
-      personName: personName,
-      month: month,
-      day: day,
-      year: year,
-      next: next,
-      rent: rent,
-      amount: rent,
-      paid: 0,
-      userId: userId,
-    })
-      .then(() => {
-        console.log("New Room Added Successfully");
-        alert("New Room Added Successfully");
-        e.target.reset();
-        setLoading(false);
+    //checking if already alloted 
+    if (user) {
+      console.log("checking if already alloted ");
+      const q = query(collection(db, "rooms"), where("userId", "==", userId), where("roomNo", "==", roomNo));
+
+      getDocs(q)
+      .then((querySnapshot) => {
+        const docs = querySnapshot.docs;
+        console.log("doc lenght" +docs.length)
+        if(docs.length > 0){
+          console.log("Room already alloted");
+          alert("Room already allotted.");
+        }
+        else{
+          addDoc(collection(db, "rooms"), {
+            roomNo: parseInt(roomNo),
+            personName: personName,
+            month: month,
+            day: day,
+            year: year,
+            next: next,
+            rent: rent,
+            amount: rent,
+            paid: 0,
+            userId: userId,
+          })
+            .then(() => {
+              console.log("New Room Added Successfully");
+              alert("New Room Added Successfully");
+              e.target.reset();
+              setLoading(false);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+
+        }
+
+        
+      }).catch(err => {
+          console.log(err);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+  }
+
   };
 
   return (
