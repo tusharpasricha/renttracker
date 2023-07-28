@@ -121,6 +121,10 @@ a {
 .login img {
   width: 10rem;
 }
+.login p{
+  font-family: 'Roboto Mono', monospace;
+
+}
 
 .btn {
   padding: 10px 20px;

@@ -66,15 +66,18 @@ const Login = () => {
                 <div className="getintouch">
                     <section className="login">
                         <img src="img/login.svg" alt="Logo" />
+                        <p>Test email & password present by default!</p>
                         <form onSubmit={handleSubmit}>
+                        
                             {error && <div className="error">{error}</div>}
                             {loading && <div className="loading">Loading...</div>}
+                            
+
                             <label>Email</label>
-                            <input type="email" name="email" />
+                            <input defaultValue={"tush@gmail.com"}  type="email" name="email" />
 
                             <label>Password</label>
-                            <input type="password" name="password" />
-
+                            <input  defaultValue={"123456"}  type="password" name="password" />
                             <input type="submit" value="Login" />
                             <p className="link">
                                 Don't have an account? <Link to="/signup">Signup</Link>
