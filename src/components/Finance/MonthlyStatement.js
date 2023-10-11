@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import db from '../../data/firebase'
 import { collection, deleteDoc, doc, getDocs, orderBy, query, where } from 'firebase/firestore'
-import AuthContext from '../../stores/AuthContext'
+import AuthContext from '../../context/AuthContext'
 import { useNavigate } from "react-router-dom";
 
 

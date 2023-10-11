@@ -5,7 +5,7 @@ import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import Sidebar from "../../auth/sidebar";
 import Third from "../../design/third";
 
-import AuthContext from "../../stores/AuthContext";
+import AuthContext from "../../context/AuthContext";
 import db from "../../data/firebase";
 
 const AllotRoom = () => {

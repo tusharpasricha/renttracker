@@ -1,13 +1,17 @@
 import React, { useContext, useState } from 'react';
-import AuthContext from '../stores/AuthContext';
-import { collection, getDocs, query, where } from 'firebase/firestore'
-import db from '../data/firebase'
 import { Link, useNavigate } from 'react-router-dom';
 import Sidebar from './sidebar';
 import Third from '../design/third';
 
+import AuthContext from '../context/AuthContext';
+
+import { collection, getDocs, query, where } from 'firebase/firestore'
+import db from '../data/firebase'
+
 const Login = () => {
+
     const { login } = useContext(AuthContext);
+    
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const navigation = useNavigate();
@@ -45,10 +49,11 @@ const Login = () => {
 
         try {
             const userCredential = await login(email, password);
+            console.log(` ${userCredential.user.uid}`);
             const user = await getUserDetails(userCredential.user.uid);
             localStorage.setItem('user', JSON.stringify(user));
-            console.log("LOGIN SUCCESSFUL");
-            console.log("user"+user);
+            console.log(`LOGIN SUCCESS ${user.name}`);
+            console.log("navigated");
             navigation('/');
         } catch (error) {
             console.log(error);

@@ -16,16 +16,16 @@ import AllotedRooms from "./components/Room/AllotedRooms";
 import AllotRoom from "./components/Room/AllotRoom";
 import MonthlyStatement from "./components/Finance/MonthlyStatement";
 
-import { AuthProvider } from "./stores/AuthContext";
+import { AuthContextProvider } from "./context/AuthContext";
 
-import RequireAuth from "./routes/PrivateRoute";
+import RequireAuth from "./routes/RequireAuth";
 
 
 
 function App() {
 
   return (
-    <AuthProvider>
+    <AuthContextProvider>
       <div className="App">
         <BrowserRouter>
           <Routes>
@@ -123,7 +123,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
-    </AuthProvider>
+    </AuthContextProvider>
   );
 }
 

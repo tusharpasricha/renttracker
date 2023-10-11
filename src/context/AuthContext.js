@@ -3,8 +3,10 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { app } from "../data/firebase";
 
 const AuthContext = React.createContext();
+   
+export default AuthContext;
 
-export const AuthProvider = ({ children }) => {
+export const AuthContextProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -54,16 +56,7 @@ export const AuthProvider = ({ children }) => {
                 break;
         }
     }
-    //const MONTHS = [
-        //     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        //     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-        //   ];
-          
-        //   const getMonth = (month) => {
-        //     return MONTHS[month - 1] || "";
-        //   };
-          
-
+    
     const value = {
         signup,
         login,
@@ -84,6 +77,7 @@ export const AuthProvider = ({ children }) => {
         return unsubscribe;
 
     }, [])
+    
     //The Provider component is responsible for providing the context data to all the components that are descendants of it.
     //When the value of the context changes, all the components consuming that context will re-render.
     return (
@@ -94,4 +88,3 @@ export const AuthProvider = ({ children }) => {
 
 }
 
-export default AuthContext;

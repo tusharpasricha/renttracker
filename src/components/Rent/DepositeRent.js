@@ -1,6 +1,6 @@
 import { addDoc, collection, getDocs, query, doc, updateDoc, where, orderBy } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
-import AuthContext from '../../stores/AuthContext'
+import AuthContext from '../../context/AuthContext'
 import db from "../../data/firebase";
 import Third from "../../design/third";
 import Sidebar from "../../auth/sidebar";

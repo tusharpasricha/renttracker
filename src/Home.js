@@ -7,7 +7,7 @@ import Sidebar from "./auth/sidebar";
 
 import Third from "./design/third";
 
-import AuthContext from "./stores/AuthContext";
+import AuthContext from "./context/AuthContext";
 
 const Home = () => {
   const { user, client } = useContext(AuthContext);
@@ -16,7 +16,7 @@ const Home = () => {
   const [g3, setg3] = useState(0);
   useEffect(() => {
     console.log('user is '+ user.uid , user.email);
-  }, [user.uid]);
+  }, [user.uid,user.email]);
 
   return (
     <div className="home">

@@ -4,7 +4,7 @@ import {useNavigate } from 'react-router-dom';
 import Sidebar from '../../auth/sidebar';
 import Third from '../../design/third';
 
-import AuthContext from '../../stores/AuthContext'
+import AuthContext from '../../context/AuthContext'
 
 import { collection, query, where, getDocs, doc, updateDoc, orderBy } from "firebase/firestore";
 import db from '../../data/firebase';

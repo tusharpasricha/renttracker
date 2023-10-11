@@ -3,14 +3,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import Sidebar from './sidebar';
 import Third from '../design/third';
 
-import AuthContext from '../stores/AuthContext';
+import AuthContext from '../context/AuthContext';
 
 import { addDoc, collection } from 'firebase/firestore';
 import db from '../data/firebase';
 
 
 const Signup = () => {
+
     const { signup } = useContext(AuthContext);
+    
     const [error, setError] = useState('');
     const navigation = useNavigate();
     const submitHandler = (e) => {
