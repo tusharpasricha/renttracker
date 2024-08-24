@@ -10,8 +10,7 @@ export const AuthContextProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [client, setClient] = useState({});
-
+    
     const auth = getAuth(app);//initializes the firebase authentication instance
 
     const signup = (email, password) => {
@@ -62,8 +61,6 @@ export const AuthContextProvider = ({ children }) => {
         login,
         logout,
         user,
-        setClient,
-        client,
         getMonth
     }
 

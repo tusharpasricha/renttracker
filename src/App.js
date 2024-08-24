@@ -1,4 +1,3 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./Home";
 
@@ -16,14 +15,13 @@ import AllotedRooms from "./components/Room/AllotedRooms";
 import AllotRoom from "./components/Room/AllotRoom";
 import MonthlyStatement from "./components/Finance/MonthlyStatement";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import { AuthContextProvider } from "./context/AuthContext";
 
 import RequireAuth from "./routes/RequireAuth";
 
-
-
 function App() {
-
   return (
     <AuthContextProvider>
       <div className="App">
@@ -84,7 +82,7 @@ function App() {
               path="/income"
               element={
                 <RequireAuth>
-                  <DepositeRent/>
+                  <DepositeRent />
                 </RequireAuth>
               }
             />
