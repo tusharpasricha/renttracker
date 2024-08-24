@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    
+
     const auth = getAuth(app);//initializes the firebase authentication instance
 
     const signup = (email, password) => {
@@ -66,12 +66,12 @@ export const AuthContextProvider = ({ children }) => {
 
     useEffect(() => {
         // function from Firebase authentication, which listens to changes in the user's authentication state. 
-        const unsubscribe = onAuthStateChanged(auth, user => {
+        const authStateChangeListener = onAuthStateChanged(auth, user => {
             setUser(user);
             setLoading(false);
         })
 
-        return unsubscribe;
+        return authStateChangeListener;
 
     }, [])
     
